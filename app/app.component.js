@@ -25,7 +25,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         router_deprecated_1.RouteConfig([
             new router_deprecated_1.Route({ path: '/', component: home_component_1.HomeComponent, name: 'Home', useAsDefault: true }),
-            new router_deprecated_1.Route({ path: '/expenses/...', component: expenses_component_1.ExpensesComponent, as: 'Expenses' }),
+            new router_deprecated_1.Route({ path: '/expenses/...', component: expenses_component_1.ExpensesComponent, name: 'Expenses' }),
         ]),
         core_1.Component({
             moduleId: module.id,

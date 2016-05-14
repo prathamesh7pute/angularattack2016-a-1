@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
+var expenses_details_component_1 = require('./+details/expenses.details.component');
 var expenses_personal_component_1 = require('./+personal/expenses.personal.component');
 var ExpensesComponent = (function () {
     function ExpensesComponent() {
@@ -17,6 +18,7 @@ var ExpensesComponent = (function () {
     ExpensesComponent.prototype.ngOnInit = function () { };
     ExpensesComponent = __decorate([
         router_deprecated_1.RouteConfig([
+            new router_deprecated_1.Route({ path: '/details', component: expenses_details_component_1.ExpensesDetailsComponent, name: 'ExpensesDetails', useAsDefault: true }),
             new router_deprecated_1.Route({ path: '/personal', component: expenses_personal_component_1.ExpensesPersonalComponent, name: 'ExpensesPersonal' }),
         ]),
         core_1.Component({

@@ -9,27 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_deprecated_1 = require('@angular/router-deprecated');
-var auth_service_1 = require('../auth.service');
-var HomeComponent = (function () {
-    function HomeComponent(authService, router) {
-        this.authService = authService;
-        this.router = router;
+var ExpensesDetailsComponent = (function () {
+    function ExpensesDetailsComponent() {
     }
-    HomeComponent.prototype.ngOnInit = function () {
-        if (this.authService.authenticated) {
-            this.router.navigate(['/Expenses']);
-        }
-    };
-    HomeComponent = __decorate([
+    ExpensesDetailsComponent.prototype.ngOnInit = function () { };
+    ExpensesDetailsComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'home',
-            templateUrl: 'home.component.html'
+            selector: 'expenses-details',
+            templateUrl: 'expenses.details.component.html'
         }), 
-        __metadata('design:paramtypes', [auth_service_1.AuthService, router_deprecated_1.Router])
-    ], HomeComponent);
-    return HomeComponent;
+        __metadata('design:paramtypes', [])
+    ], ExpensesDetailsComponent);
+    return ExpensesDetailsComponent;
 }());
-exports.HomeComponent = HomeComponent;
-//# sourceMappingURL=home.component.js.map
+exports.ExpensesDetailsComponent = ExpensesDetailsComponent;
+//# sourceMappingURL=expenses.details.component.js.map
