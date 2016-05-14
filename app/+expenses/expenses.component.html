@@ -1,10 +1,22 @@
-<h4>Show some user datails / summay here...</h4>
-<br />
-<a [routerLink]="['ExpensesDetails']">Expenses Overview</a>
-<br />
-<a [routerLink]="['ExpensesPersonal']">Personal Expenses</a>
-<br />
-<a [routerLink]="['ExpensesTrip']">Trip Expenses</a>
+<h4>Welcome,  {{authService.displayName}}</h4>
+<ul class="demo-list-item mdl-list">
+  <li class="mdl-list__item">
+    <span class="mdl-list__item-primary-content">
+      <a [routerLink]="['ExpensesDetails']">Expenses Overview</a>
+    </span>
+  </li>
+  <li class="mdl-list__item">
+    <span class="mdl-list__item-primary-content">
+      <a [routerLink]="['ExpensesPersonal']">Personal Expenses</a>
+    </span>
+  </li>
+  <li class="mdl-list__item">
+    <span class="mdl-list__item-primary-content">
+      <a [routerLink]="['ExpensesTrip']">Trip Expenses</a>
+    </span>
+  </li>
+</ul>
+
 <br />
 <div>
     <router-outlet></router-outlet>

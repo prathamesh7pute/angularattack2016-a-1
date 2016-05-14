@@ -13,8 +13,10 @@ var router_deprecated_1 = require('@angular/router-deprecated');
 var expenses_details_component_1 = require('./+details/expenses.details.component');
 var expenses_personal_component_1 = require('./+personal/expenses.personal.component');
 var expenses_trip_component_1 = require('./+trip/expenses.trip.component');
+var auth_service_1 = require('../auth.service');
 var ExpensesComponent = (function () {
-    function ExpensesComponent() {
+    function ExpensesComponent(authService) {
+        this.authService = authService;
     }
     ExpensesComponent.prototype.ngOnInit = function () { };
     ExpensesComponent = __decorate([
@@ -29,7 +31,7 @@ var ExpensesComponent = (function () {
             templateUrl: 'expenses.component.html',
             directives: [router_deprecated_1.ROUTER_DIRECTIVES, router_deprecated_1.RouterOutlet],
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [auth_service_1.AuthService])
     ], ExpensesComponent);
     return ExpensesComponent;
 }());
