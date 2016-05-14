@@ -1,8 +1,27 @@
 <br />
-<br />
-<br />
-<button (click)="authService.loginGoogle()">Login With Google</button>
-<button (click)="authService.loginFacebook()">Login With Facebook</button>
-<button (click)="authService.loginGithub()">Login With Github</button>
-
+<div align="center">
+    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Welcome to Expense Break</h2>
+      </div>
+      <div class="mdl-card__supporting-text">
+        LOGIN 
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <a  (click)="authService.loginFacebook()" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+          Login With Facebook
+        </a>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <a  (click)="authService.loginGoogle()" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+          Login With Google
+        </a>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <a  (click)="authService.loginGithub()" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+          Login With Github
+        </a>
+      </div>
+    </div>
+</div>
 <a [routerLink]="['Expenses']">Check Expenses</a>
