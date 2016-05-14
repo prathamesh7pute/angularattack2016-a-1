@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var expenses_details_component_1 = require('./+details/expenses.details.component');
 var expenses_personal_component_1 = require('./+personal/expenses.personal.component');
+var expenses_trip_component_1 = require('./+trip/expenses.trip.component');
 var ExpensesComponent = (function () {
     function ExpensesComponent() {
     }
@@ -20,6 +21,7 @@ var ExpensesComponent = (function () {
         router_deprecated_1.RouteConfig([
             new router_deprecated_1.Route({ path: '/details', component: expenses_details_component_1.ExpensesDetailsComponent, name: 'ExpensesDetails', useAsDefault: true }),
             new router_deprecated_1.Route({ path: '/personal', component: expenses_personal_component_1.ExpensesPersonalComponent, name: 'ExpensesPersonal' }),
+            new router_deprecated_1.Route({ path: '/trip', component: expenses_trip_component_1.ExpensesTripComponent, name: 'ExpensesTrip' }),
         ]),
         core_1.Component({
             moduleId: module.id,
