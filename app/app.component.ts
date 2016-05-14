@@ -5,6 +5,7 @@ import { AuthService } from './auth.service';
 import { HomeComponent } from './+home/home.component';
 import { HeaderComponent } from './+header/header.component';
 import { ExpensesComponent } from './+expenses/expenses.component';
+import { FooterComponent } from './+footer/footer.component';
 
 @RouteConfig([
   new Route({path: '/', component: HomeComponent, name: 'Home', useAsDefault: true}),
@@ -17,7 +18,8 @@ import { ExpensesComponent } from './+expenses/expenses.component';
   providers: [AuthService],
   directives: [
     HeaderComponent,
-    RouterOutlet
+    RouterOutlet,
+    FooterComponent
   ]
 })
 export class AppComponent {
