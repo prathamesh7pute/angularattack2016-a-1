@@ -10,18 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var auth_service_1 = require('../../auth.service');
+var expense_service_1 = require('../expense.service');
+var angularfire2_1 = require('angularfire2');
 var ExpensesPersonalComponent = (function () {
-    function ExpensesPersonalComponent(authService) {
+    function ExpensesPersonalComponent(authService, af, expenseService) {
         this.authService = authService;
+        this.expenseService = expenseService;
+        this.expenses = expenseService.expenseItems$;
     }
     ExpensesPersonalComponent.prototype.ngOnInit = function () { };
     ExpensesPersonalComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'expenses-personal',
-            templateUrl: 'expenses.personal.component.html'
+            templateUrl: 'expenses.personal.component.html',
+            providers: [expense_service_1.ExpenseService]
         }), 
-        __metadata('design:paramtypes', [auth_service_1.AuthService])
+        __metadata('design:paramtypes', [auth_service_1.AuthService, angularfire2_1.AngularFire, expense_service_1.ExpenseService])
     ], ExpensesPersonalComponent);
     return ExpensesPersonalComponent;
 }());
