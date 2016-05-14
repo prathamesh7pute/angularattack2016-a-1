@@ -17,13 +17,13 @@ var ExpensesComponent = (function () {
     ExpensesComponent.prototype.ngOnInit = function () { };
     ExpensesComponent = __decorate([
         router_deprecated_1.RouteConfig([
-            new router_deprecated_1.Route({ path: 'personal', component: expenses_personal_component_1.ExpensesPersonalComponent, name: 'ExpensesPersonal' }),
+            new router_deprecated_1.Route({ path: '/personal', component: expenses_personal_component_1.ExpensesPersonalComponent, name: 'ExpensesPersonal' }),
         ]),
         core_1.Component({
             moduleId: module.id,
             selector: 'expenses',
             templateUrl: 'expenses.component.html',
-            directives: [router_deprecated_1.ROUTER_DIRECTIVES],
+            directives: [router_deprecated_1.ROUTER_DIRECTIVES, router_deprecated_1.RouterOutlet],
         }), 
         __metadata('design:paramtypes', [])
     ], ExpensesComponent);

@@ -9,7 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_deprecated_1 = require('@angular/router-deprecated');
 var auth_service_1 = require('../auth.service');
 var HomeComponent = (function () {
     function HomeComponent(authService) {
@@ -20,8 +19,7 @@ var HomeComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'home',
-            templateUrl: 'home.component.html',
-            directives: [router_deprecated_1.ROUTER_DIRECTIVES],
+            templateUrl: 'home.component.html'
         }), 
         __metadata('design:paramtypes', [auth_service_1.AuthService])
     ], HomeComponent);
