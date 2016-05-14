@@ -1,0 +1,8 @@
+<h1> Expense Break </h1>
+
+
+<ul *ngFor="let item of items | async">
+  <li class="text">
+    {{item.$value}}
+  </li>
+</ul>
