@@ -1,29 +1,24 @@
 import { Component } from '@angular/core';
-import { AngularFire, FirebaseListObservable, FirebaseAuth, FirebaseAuthState, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { AuthService } from './auth.service';
 
 @Component({
   moduleId: module.id,
   selector: 'expense-break',
-  templateUrl: 'app.component.html'
+  templateUrl: 'app.component.html',
+  providers: [AuthService]
 })
 export class AppComponent {
 
   items: FirebaseListObservable<any[]>;
 
-  constructor(private af: AngularFire) {
+  constructor(private af: AngularFire, public authService: AuthService) {
     this.items = af.database.list('/items');
-
-    this.af.auth.subscribe(auth => console.log(auth));
-    
   }
-
-  loginGoogle() {
-    this.af.auth.login({
-      provider: AuthProviders.Google,
-      method: AuthMethods.Redirect,
-    });
-  }
-
   
-
+  logOut() : void {
+    this.authService.logOut();
+    window.location.replace('/');
+  }
+  
 }

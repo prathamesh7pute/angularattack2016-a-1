@@ -10,25 +10,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var angularfire2_1 = require('angularfire2');
+var auth_service_1 = require('./auth.service');
 var AppComponent = (function () {
-    function AppComponent(af) {
+    function AppComponent(af, authService) {
         this.af = af;
+        this.authService = authService;
         this.items = af.database.list('/items');
-        this.af.auth.subscribe(function (auth) { return console.log(auth); });
     }
-    AppComponent.prototype.loginGoogle = function () {
-        this.af.auth.login({
-            provider: angularfire2_1.AuthProviders.Google,
-            method: angularfire2_1.AuthMethods.Redirect,
-        });
+    AppComponent.prototype.logOut = function () {
+        this.authService.logOut();
+        window.location.replace('/');
     };
     AppComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'expense-break',
-            templateUrl: 'app.component.html'
+            templateUrl: 'app.component.html',
+            providers: [auth_service_1.AuthService]
         }), 
-        __metadata('design:paramtypes', [angularfire2_1.AngularFire])
+        __metadata('design:paramtypes', [angularfire2_1.AngularFire, auth_service_1.AuthService])
     ], AppComponent);
     return AppComponent;
 }());
