@@ -9,25 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_deprecated_1 = require('@angular/router-deprecated');
 var auth_service_1 = require('../auth.service');
 var HomeComponent = (function () {
-    function HomeComponent(authService, router) {
+    function HomeComponent(authService) {
         this.authService = authService;
-        this.router = router;
     }
-    HomeComponent.prototype.ngOnInit = function () {
-        if (this.authService.authenticated) {
-            this.router.navigate(['/Expenses']);
-        }
-    };
+    HomeComponent.prototype.ngOnInit = function () { };
     HomeComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'home',
             templateUrl: 'home.component.html'
         }), 
-        __metadata('design:paramtypes', [auth_service_1.AuthService, router_deprecated_1.Router])
+        __metadata('design:paramtypes', [auth_service_1.AuthService])
     ], HomeComponent);
     return HomeComponent;
 }());

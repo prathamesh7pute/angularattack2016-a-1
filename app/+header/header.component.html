@@ -6,13 +6,6 @@
           <h3>Expense Break</h3>
         </div>
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-            <li *ngIf="authenticated"><a (click)="logout.emit()" href="#">Logout</a></li>
+            <li *ngIf="authenticated"><a (click)="logout.emit()" href="/">Logout</a></li>
         </div>
       </header>
-
-<!--<header class="header">
-    <h1>Expense Break</h1>
-    <div style="float:right">
-        <li *ngIf="authenticated"><a (click)="logout.emit()" href="#">Logout</a></li>
-    </div>
-</header>-->

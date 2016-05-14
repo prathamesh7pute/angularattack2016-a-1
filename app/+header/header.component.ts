@@ -8,14 +8,12 @@ import { AuthService } from '../auth.service';
     templateUrl: 'header.component.html',
 })
 export class HeaderComponent implements OnInit {
-    displayName: string = 'Test';
     constructor(private authService: AuthService) { }
 
     @Input() authenticated: boolean;
     @Output() logout: EventEmitter<any> = new EventEmitter(false);
     
     ngOnInit(){
-        //this.displayName = this.authService.displayName;
     }
     
 }

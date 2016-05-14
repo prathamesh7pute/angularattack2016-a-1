@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router-deprecated';
 
 import { AuthService } from '../../auth.service';
 
@@ -10,12 +9,8 @@ import { AuthService } from '../../auth.service';
     templateUrl: 'expenses.personal.component.html'
 })
 export class ExpensesPersonalComponent implements OnInit {
-    constructor(private authService: AuthService, private router: Router) { }
+    constructor(private authService: AuthService) { }
 
-    ngOnInit() {
-        if(!this.authService.authenticated) {
-            this.router.navigate(['/Home'])
-        }
-     }
+    ngOnInit() { }
 
 }

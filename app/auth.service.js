@@ -10,13 +10,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var angularfire2_1 = require('angularfire2');
+var router_deprecated_1 = require('@angular/router-deprecated');
 var AuthService = (function () {
-    function AuthService(af) {
+    function AuthService(af, router) {
         var _this = this;
         this.af = af;
+        this.router = router;
         this.af.auth.subscribe(function (auth) {
             _this.auth = auth;
-            console.log(auth);
+            if (_this.authenticated) {
+                _this.router.navigate(['/Expenses']);
+            }
+            else {
+                _this.router.navigate(['/Home']);
+            }
         });
     }
     AuthService.prototype.loginGoogle = function () {
@@ -70,7 +77,7 @@ var AuthService = (function () {
     };
     AuthService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [angularfire2_1.AngularFire])
+        __metadata('design:paramtypes', [angularfire2_1.AngularFire, router_deprecated_1.Router])
     ], AuthService);
     return AuthService;
 }());

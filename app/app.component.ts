@@ -8,8 +8,8 @@ import { ExpensesComponent } from './+expenses/expenses.component';
 import { FooterComponent } from './+footer/footer.component';
 
 @RouteConfig([
-  new Route({path: '/', component: HomeComponent, name: 'Home', useAsDefault: true}),
-  new Route({path: '/expenses/...', component: ExpensesComponent, name: 'Expenses'}),
+  new Route({ path: '/', component: HomeComponent, name: 'Home', useAsDefault: true }),
+  new Route({ path: '/expenses/...', component: ExpensesComponent, name: 'Expenses' }),
 ])
 @Component({
   moduleId: module.id,
@@ -24,11 +24,12 @@ import { FooterComponent } from './+footer/footer.component';
 })
 export class AppComponent {
 
-  constructor(private authService: AuthService) {}
-  
-  logout() : void {
+  constructor(private authService: AuthService) {
+  }
+
+  logout(): void {
     this.authService.logout();
     window.location.replace('/');
   }
-  
+
 }

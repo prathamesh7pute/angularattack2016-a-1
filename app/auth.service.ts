@@ -1,16 +1,22 @@
 import { Injectable } from '@angular/core';
 import { AngularFire, AuthProviders, FirebaseAuthState, AuthMethods } from 'angularfire2';
 
+import { Router } from '@angular/router-deprecated';
+
 
 @Injectable()
 export class AuthService {
 
     auth: FirebaseAuthState;
 
-    constructor(private af: AngularFire) {
+    constructor(private af: AngularFire, private router: Router) {
         this.af.auth.subscribe(auth => {
             this.auth = auth;
-            console.log(auth);                       
+            if (this.authenticated) {
+                this.router.navigate(['/Expenses']);
+            } else {
+                this.router.navigate(['/Home']);
+            }
         });
     }
 
@@ -34,10 +40,10 @@ export class AuthService {
             method: AuthMethods.Redirect,
         });
     }
-    
+
     get displayName(): string {
-        
-       return this.auth && this.auth.google ? this.auth.google.displayName : 'User';
+
+        return this.auth && this.auth.google ? this.auth.google.displayName : 'User';
     }
 
     get authenticated(): boolean {

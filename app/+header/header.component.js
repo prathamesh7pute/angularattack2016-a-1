@@ -13,11 +13,9 @@ var auth_service_1 = require('../auth.service');
 var HeaderComponent = (function () {
     function HeaderComponent(authService) {
         this.authService = authService;
-        this.displayName = 'Test';
         this.logout = new core_1.EventEmitter(false);
     }
     HeaderComponent.prototype.ngOnInit = function () {
-        //this.displayName = this.authService.displayName;
     };
     __decorate([
         core_1.Input(), 
