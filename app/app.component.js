@@ -9,26 +9,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var angularfire2_1 = require('angularfire2');
+var router_deprecated_1 = require('@angular/router-deprecated');
 var auth_service_1 = require('./auth.service');
+var home_component_1 = require('./+home/home.component');
+var header_component_1 = require('./+header/header.component');
 var AppComponent = (function () {
-    function AppComponent(af, authService) {
-        this.af = af;
+    function AppComponent(authService) {
         this.authService = authService;
-        this.items = af.database.list('/items');
     }
-    AppComponent.prototype.logOut = function () {
-        this.authService.logOut();
+    AppComponent.prototype.logout = function () {
+        this.authService.logout();
         window.location.replace('/');
     };
     AppComponent = __decorate([
+        router_deprecated_1.RouteConfig([
+            new router_deprecated_1.Route({ path: '/', component: home_component_1.HomeComponent, name: 'Home' }),
+            new router_deprecated_1.Route({ path: '/expenses', component: home_component_1.HomeComponent, name: 'Expenses' })
+        ]),
         core_1.Component({
             moduleId: module.id,
             selector: 'expense-break',
             templateUrl: 'app.component.html',
-            providers: [auth_service_1.AuthService]
+            providers: [auth_service_1.AuthService],
+            directives: [
+                header_component_1.HeaderComponent,
+                router_deprecated_1.RouterOutlet
+            ]
         }), 
-        __metadata('design:paramtypes', [angularfire2_1.AngularFire, auth_service_1.AuthService])
+        __metadata('design:paramtypes', [auth_service_1.AuthService])
     ], AppComponent);
     return AppComponent;
 }());

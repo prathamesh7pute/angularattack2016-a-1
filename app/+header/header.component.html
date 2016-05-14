@@ -1,0 +1,6 @@
+<header class="header">
+    <h1>Expense Break</h1>
+    <div style="float:right">
+        <li *ngIf="authenticated"><a (click)="logout.emit()" href="#">Logout</a></li>
+    </div>
+</header>

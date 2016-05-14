@@ -1,14 +1,12 @@
 import { bootstrap }    from '@angular/platform-browser-dynamic';
+import { ROUTER_PROVIDERS } from '@angular/router-deprecated';
+
+import { FIREBASE_PROVIDERS, defaultFirebase, firebaseAuthConfig } from 'angularfire2';
 
 import { AppComponent } from './app.component';
-import {FIREBASE_PROVIDERS,
-    defaultFirebase,
-    AngularFire,
-    AuthMethods,
-    AuthProviders,
-    firebaseAuthConfig} from 'angularfire2';
 
 bootstrap(AppComponent, [
+    ROUTER_PROVIDERS,
     FIREBASE_PROVIDERS,
     defaultFirebase('https://radiant-torch-6585.firebaseio.com')
 ]);

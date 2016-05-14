@@ -1,17 +1,4 @@
-<h1> Expense Break </h1>
-
-
-<ul *ngFor="let item of items | async">
-  <li class="text">
-    {{item.$value}}
-  </li>
-</ul>
-
-
-<button (click)="authService.loginGoogle()">Login With Google</button>
-<button (click)="authService.loginFacebook()">Login With Facebook</button>
-<button (click)="authService.loginGithub()">Login With Github</button>
-<br />
-<br />
-<br />
-<button (click)="logOut()">Logout</button>
+<app-header [authenticated]="authService.authenticated" (logout)="logout()"></app-header>
+<main>
+  <router-outlet></router-outlet>
+</main>

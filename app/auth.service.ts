@@ -21,6 +21,25 @@ export class AuthService {
         });
     }
 
+    loginFacebook() {
+        this.af.auth.login({
+            provider: AuthProviders.Facebook,
+            method: AuthMethods.Redirect,
+        });
+    }
+
+    loginGithub() {
+        this.af.auth.login({
+            provider: AuthProviders.Github,
+            method: AuthMethods.Redirect,
+        });
+    }
+
+    get authenticated(): boolean {
+        return this.auth !== null && !this.expired;
+    }
+
+
     get expired(): boolean {
         return !this.auth || (this.auth.expires * 1000) < Date.now();
     }
@@ -29,7 +48,7 @@ export class AuthService {
         return this.auth.uid ? this.auth.uid : '';
     }
 
-    logOut(): void {
+    logout(): void {
         this.af.auth.logout();
     }
 

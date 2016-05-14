@@ -25,6 +25,25 @@ var AuthService = (function () {
             method: angularfire2_1.AuthMethods.Redirect,
         });
     };
+    AuthService.prototype.loginFacebook = function () {
+        this.af.auth.login({
+            provider: angularfire2_1.AuthProviders.Facebook,
+            method: angularfire2_1.AuthMethods.Redirect,
+        });
+    };
+    AuthService.prototype.loginGithub = function () {
+        this.af.auth.login({
+            provider: angularfire2_1.AuthProviders.Github,
+            method: angularfire2_1.AuthMethods.Redirect,
+        });
+    };
+    Object.defineProperty(AuthService.prototype, "authenticated", {
+        get: function () {
+            return this.auth !== null && !this.expired;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(AuthService.prototype, "expired", {
         get: function () {
             return !this.auth || (this.auth.expires * 1000) < Date.now();
@@ -39,7 +58,7 @@ var AuthService = (function () {
         enumerable: true,
         configurable: true
     });
-    AuthService.prototype.logOut = function () {
+    AuthService.prototype.logout = function () {
         this.af.auth.logout();
     };
     AuthService = __decorate([

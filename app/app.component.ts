@@ -1,23 +1,31 @@
 import { Component } from '@angular/core';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
-import { AuthService } from './auth.service';
+import { Route, RouteConfig, RouterOutlet } from '@angular/router-deprecated';
 
+import { AuthService } from './auth.service';
+import { HomeComponent } from './+home/home.component';
+import { HeaderComponent } from './+header/header.component';
+
+
+@RouteConfig([
+  new Route({path: '/', component: HomeComponent, name: 'Home'}),
+  new Route({path: '/expenses', component: HomeComponent, name: 'Expenses'})
+])
 @Component({
   moduleId: module.id,
   selector: 'expense-break',
   templateUrl: 'app.component.html',
-  providers: [AuthService]
+  providers: [AuthService],
+  directives: [
+    HeaderComponent,
+    RouterOutlet
+  ]
 })
 export class AppComponent {
 
-  items: FirebaseListObservable<any[]>;
-
-  constructor(private af: AngularFire, public authService: AuthService) {
-    this.items = af.database.list('/items');
-  }
+  constructor(private authService: AuthService) {}
   
-  logOut() : void {
-    this.authService.logOut();
+  logout() : void {
+    this.authService.logout();
     window.location.replace('/');
   }
   
