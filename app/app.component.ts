@@ -6,10 +6,9 @@ import { HomeComponent } from './+home/home.component';
 import { HeaderComponent } from './+header/header.component';
 import { ExpensesComponent } from './+expenses/expenses.component';
 
-
 @RouteConfig([
   new Route({path: '/', component: HomeComponent, name: 'Home', useAsDefault: true}),
-  new Route({path: '/expenses', component: ExpensesComponent, name: 'Expenses'})
+  new Route({path: '/expenses/...', component: ExpensesComponent, as: 'Expenses'}),
 ])
 @Component({
   moduleId: module.id,

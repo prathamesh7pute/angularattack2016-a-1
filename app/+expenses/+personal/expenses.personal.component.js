@@ -9,25 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_deprecated_1 = require('@angular/router-deprecated');
-var expenses_personal_component_1 = require('./+personal/expenses.personal.component');
-var ExpensesComponent = (function () {
-    function ExpensesComponent() {
+var ExpensesPersonalComponent = (function () {
+    function ExpensesPersonalComponent() {
     }
-    ExpensesComponent.prototype.ngOnInit = function () { };
-    ExpensesComponent = __decorate([
-        router_deprecated_1.RouteConfig([
-            new router_deprecated_1.Route({ path: 'personal', component: expenses_personal_component_1.ExpensesPersonalComponent, name: 'ExpensesPersonal' }),
-        ]),
+    ExpensesPersonalComponent.prototype.ngOnInit = function () { };
+    ExpensesPersonalComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'expenses',
-            templateUrl: 'expenses.component.html',
-            directives: [router_deprecated_1.ROUTER_DIRECTIVES],
+            selector: 'expenses-personal',
+            templateUrl: 'expenses.personal.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], ExpensesComponent);
-    return ExpensesComponent;
+    ], ExpensesPersonalComponent);
+    return ExpensesPersonalComponent;
 }());
-exports.ExpensesComponent = ExpensesComponent;
-//# sourceMappingURL=expenses.component.js.map
+exports.ExpensesPersonalComponent = ExpensesPersonalComponent;
+//# sourceMappingURL=expenses.personal.component.js.map
