@@ -1,1 +1,14 @@
 <h1> Personal Expenses will go here </h1>
+
+<ul>
+  <li *ngFor="let item of expenses | async">
+    <input type="text" #updatesize [value]="item.name" />
+    <button (click)="expenseService.updateExpense(item, updatesize.value)">Update</button>
+    <button (click)="expenseService.removeExpense(item)">Delete</button>
+  </li>
+</ul>
+<input type="text" #expenseName />
+<input type="text" #expenseCategory />
+<input type="text" #expenseDescription />
+<input type="datetime" #expenseDate />
+<button (click)="expenseService.createExpense(expenseName.value, expenseCategory.value, expenseDescription.value, expenseDate.value)">Add</button>
