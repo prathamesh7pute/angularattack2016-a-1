@@ -37,6 +37,13 @@ var AuthService = (function () {
             method: angularfire2_1.AuthMethods.Redirect,
         });
     };
+    Object.defineProperty(AuthService.prototype, "displayName", {
+        get: function () {
+            return this.auth && this.auth.google ? this.auth.google.displayName : 'User';
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(AuthService.prototype, "authenticated", {
         get: function () {
             return this.auth !== null && !this.expired;

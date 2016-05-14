@@ -10,7 +10,7 @@ export class AuthService {
     constructor(private af: AngularFire) {
         this.af.auth.subscribe(auth => {
             this.auth = auth;
-            console.log(auth);
+            console.log(auth);                       
         });
     }
 
@@ -33,6 +33,11 @@ export class AuthService {
             provider: AuthProviders.Github,
             method: AuthMethods.Redirect,
         });
+    }
+    
+    get displayName(): string {
+        
+       return this.auth && this.auth.google ? this.auth.google.displayName : 'User';
     }
 
     get authenticated(): boolean {

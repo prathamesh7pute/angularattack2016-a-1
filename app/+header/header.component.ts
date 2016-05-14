@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
     moduleId: module.id,
@@ -6,9 +7,15 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
     selector: 'app-header',
     templateUrl: 'header.component.html',
 })
-export class HeaderComponent {
-    constructor() { }
+export class HeaderComponent implements OnInit {
+    displayName: string = 'Test';
+    constructor(private authService: AuthService) { }
 
     @Input() authenticated: boolean;
     @Output() logout: EventEmitter<any> = new EventEmitter(false);
+    
+    ngOnInit(){
+        //this.displayName = this.authService.displayName;
+    }
+    
 }

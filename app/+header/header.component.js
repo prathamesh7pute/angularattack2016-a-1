@@ -9,10 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var auth_service_1 = require('../auth.service');
 var HeaderComponent = (function () {
-    function HeaderComponent() {
+    function HeaderComponent(authService) {
+        this.authService = authService;
+        this.displayName = 'Test';
         this.logout = new core_1.EventEmitter(false);
     }
+    HeaderComponent.prototype.ngOnInit = function () {
+        //this.displayName = this.authService.displayName;
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Boolean)
@@ -28,7 +34,7 @@ var HeaderComponent = (function () {
             selector: 'app-header',
             templateUrl: 'header.component.html',
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [auth_service_1.AuthService])
     ], HeaderComponent);
     return HeaderComponent;
 }());
