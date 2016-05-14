@@ -8,7 +8,7 @@ import { ExpensesComponent } from './+expenses/expenses.component';
 
 
 @RouteConfig([
-  new Route({path: '/', component: HomeComponent, name: 'Home'}),
+  new Route({path: '/', component: HomeComponent, name: 'Home', useAsDefault: true}),
   new Route({path: '/expenses', component: ExpensesComponent, name: 'Expenses'})
 ])
 @Component({
