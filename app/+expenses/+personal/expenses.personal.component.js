@@ -9,17 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_deprecated_1 = require('@angular/router-deprecated');
+var auth_service_1 = require('../../auth.service');
 var ExpensesPersonalComponent = (function () {
-    function ExpensesPersonalComponent() {
+    function ExpensesPersonalComponent(authService, router) {
+        this.authService = authService;
+        this.router = router;
     }
-    ExpensesPersonalComponent.prototype.ngOnInit = function () { };
+    ExpensesPersonalComponent.prototype.ngOnInit = function () {
+        if (!this.authService.authenticated) {
+            this.router.navigate(['/Home']);
+        }
+    };
     ExpensesPersonalComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'expenses-personal',
             templateUrl: 'expenses.personal.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [auth_service_1.AuthService, router_deprecated_1.Router])
     ], ExpensesPersonalComponent);
     return ExpensesPersonalComponent;
 }());
