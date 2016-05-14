@@ -3,7 +3,7 @@
 <ul>
   <li *ngFor="let item of expenses | async">
     <input type="text" #updatesize [value]="item.name" />
-    <button (click)="expenseService.updateExpense(item, updatesize.value)">Update</button>
+    <button (click)="expenseService.updateExpense(item, { name: updatesize.value})">Update</button>
     <button (click)="expenseService.removeExpense(item)">Delete</button>
   </li>
 </ul>
