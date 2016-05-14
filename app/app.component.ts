@@ -4,11 +4,12 @@ import { Route, RouteConfig, RouterOutlet } from '@angular/router-deprecated';
 import { AuthService } from './auth.service';
 import { HomeComponent } from './+home/home.component';
 import { HeaderComponent } from './+header/header.component';
+import { ExpensesComponent } from './+expenses/expenses.component';
 
 
 @RouteConfig([
   new Route({path: '/', component: HomeComponent, name: 'Home'}),
-  new Route({path: '/expenses', component: HomeComponent, name: 'Expenses'})
+  new Route({path: '/expenses', component: ExpensesComponent, name: 'Expenses'})
 ])
 @Component({
   moduleId: module.id,

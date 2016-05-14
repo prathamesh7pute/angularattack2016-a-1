@@ -13,6 +13,7 @@ var router_deprecated_1 = require('@angular/router-deprecated');
 var auth_service_1 = require('./auth.service');
 var home_component_1 = require('./+home/home.component');
 var header_component_1 = require('./+header/header.component');
+var expenses_component_1 = require('./+expenses/expenses.component');
 var AppComponent = (function () {
     function AppComponent(authService) {
         this.authService = authService;
@@ -24,7 +25,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         router_deprecated_1.RouteConfig([
             new router_deprecated_1.Route({ path: '/', component: home_component_1.HomeComponent, name: 'Home' }),
-            new router_deprecated_1.Route({ path: '/expenses', component: home_component_1.HomeComponent, name: 'Expenses' })
+            new router_deprecated_1.Route({ path: '/expenses', component: expenses_component_1.ExpensesComponent, name: 'Expenses' })
         ]),
         core_1.Component({
             moduleId: module.id,
