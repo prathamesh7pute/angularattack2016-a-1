@@ -12,8 +12,16 @@ var core_1 = require('@angular/core');
 var angularfire2_1 = require('angularfire2');
 var AppComponent = (function () {
     function AppComponent(af) {
+        this.af = af;
         this.items = af.database.list('/items');
+        this.af.auth.subscribe(function (auth) { return console.log(auth); });
     }
+    AppComponent.prototype.loginGoogle = function () {
+        this.af.auth.login({
+            provider: angularfire2_1.AuthProviders.Google,
+            method: angularfire2_1.AuthMethods.Redirect,
+        });
+    };
     AppComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
