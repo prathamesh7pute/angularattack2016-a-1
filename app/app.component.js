@@ -15,6 +15,7 @@ var home_component_1 = require('./+home/home.component');
 var header_component_1 = require('./+header/header.component');
 var expenses_component_1 = require('./+expenses/expenses.component');
 var footer_component_1 = require('./+footer/footer.component');
+var MaterialDesignLite_1 = require('./MaterialDesignLite');
 var AppComponent = (function () {
     function AppComponent(authService) {
         this.authService = authService;
@@ -36,7 +37,8 @@ var AppComponent = (function () {
             directives: [
                 header_component_1.HeaderComponent,
                 router_deprecated_1.RouterOutlet,
-                footer_component_1.FooterComponent
+                footer_component_1.FooterComponent,
+                MaterialDesignLite_1.MDL
             ]
         }), 
         __metadata('design:paramtypes', [auth_service_1.AuthService])

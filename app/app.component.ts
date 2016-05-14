@@ -6,6 +6,8 @@ import { HomeComponent } from './+home/home.component';
 import { HeaderComponent } from './+header/header.component';
 import { ExpensesComponent } from './+expenses/expenses.component';
 import { FooterComponent } from './+footer/footer.component';
+import {MDL} from './MaterialDesignLite';
+
 
 @RouteConfig([
   new Route({ path: '/', component: HomeComponent, name: 'Home', useAsDefault: true }),
@@ -19,7 +21,8 @@ import { FooterComponent } from './+footer/footer.component';
   directives: [
     HeaderComponent,
     RouterOutlet,
-    FooterComponent
+    FooterComponent,
+    MDL
   ]
 })
 export class AppComponent {
