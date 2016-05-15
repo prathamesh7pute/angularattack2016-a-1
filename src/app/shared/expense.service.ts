@@ -10,8 +10,10 @@ import { IExpense, Expense } from './expense';
 export class ExpenseService {
   expenseItems$: FirebaseListObservable<IExpense[]>;
 
-  constructor(af: AngularFire, auth: AuthService) {
-    this.expenseItems$ = af.list(`/expenses/${auth.id}`) as FirebaseListObservable<IExpense[]>;
+  constructor(private af: AngularFire, private authService: AuthService) {
+    if(this.authService.auth && this.authService.auth.uid) {
+      this.expenseItems$ = af.list(`/expenses/${this.authService.auth.uid}`) as FirebaseListObservable<IExpense[]>;
+    }
   }
 
   createExpense(name: string, category: string, description: string, createdAt: number): Promise<any> {

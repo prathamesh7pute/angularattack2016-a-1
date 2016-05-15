@@ -17,7 +17,7 @@ import { MdButton } from '@angular2-material/button';
   templateUrl: 'expenses.component.html',
   styleUrls: ['expenses.component.css'],
 
-  providers: [AuthService, ExpenseService],  
+  providers: [AuthService, ExpenseService],
   directives: [MD_CARD_DIRECTIVES, MdToolbar, MD_INPUT_DIRECTIVES, MdButton]
 
 })
@@ -25,14 +25,17 @@ export class ExpensesComponent implements OnInit {
 
   expenses: FirebaseListObservable<any>;
 
-  constructor(private authService: AuthService, af: AngularFire, private expenseService: ExpenseService, private router: Router) {
-    this.expenses = expenseService.expenseItems$;
-    if(!this.authService.authenticated) {
+  constructor(private authService: AuthService, private af: AngularFire, private expenseService: ExpenseService, private router: Router) {
+    let authData = this.af.auth.getAuth();
+    if (!authData || !authData.uid) {
       this.router.navigate(['/']);
+    } else {
+      this.expenses = expenseService.expenseItems$;
     }
+    
   }
 
-  ngOnInit() { 
+  ngOnInit() {
   }
 
 }
