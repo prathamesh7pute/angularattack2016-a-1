@@ -1,1 +1,1 @@
-export { ExpensesComponent } from './expenses.component';
+export {ExpensesComponent} from './expenses.component';

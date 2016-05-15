@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import { AuthService, ExpenseService } from '../shared';
+import {AuthService, ExpenseService} from '../shared';
 
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import {AngularFire, FirebaseListObservable} from 'angularfire2';
 
 
 @Component({
@@ -13,13 +13,12 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
   providers: [AuthService, ExpenseService]
 })
 export class ExpensesComponent implements OnInit {
-
   expenses: FirebaseListObservable<any>;
 
-  constructor(private authService: AuthService, af: AngularFire, private expenseService: ExpenseService) {
+  constructor(
+      private authService: AuthService, af: AngularFire, private expenseService: ExpenseService) {
     this.expenses = expenseService.expenseItems$;
   }
 
-  ngOnInit() { }
-
+  ngOnInit() {}
 }
