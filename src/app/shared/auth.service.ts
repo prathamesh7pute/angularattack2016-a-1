@@ -34,7 +34,24 @@ export class AuthService {
     }
 
     get displayName(): string {
-        return this.auth && this.auth.google ? this.auth.google.displayName : 'User';
+        let userName = '';
+        if (this.auth) {
+            switch (this.auth.auth['provider']) {
+                case 'google':
+                    userName = this.auth.google.displayName;
+                    break;
+                case 'facebook':
+                    userName = this.auth.facebook.displayName;
+                    break;
+                case 'github':
+                    userName = this.auth.github.displayName;
+                    break;
+                default:
+                    userName = 'User';
+                    break;
+            }
+        }
+        return userName;
     }
 
     get authenticated(): boolean {
