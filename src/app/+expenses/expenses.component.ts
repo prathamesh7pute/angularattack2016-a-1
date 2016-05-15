@@ -22,18 +22,29 @@ import { MdButton } from '@angular2-material/button';
 export class ExpensesComponent implements OnInit {
 
   expenses: FirebaseListObservable<any>;
+  total: number;
 
   constructor(private authService: AuthService, private af: AngularFire, private expenseService: ExpenseService, private router: Router) {
     let authData = this.af.auth.getAuth();
+
+    this.total = 0;
+
     if (!authData || !authData.uid) {
       this.router.navigate(['/']);
     } else {
       this.expenses = expenseService.expenseItems$;
+      this.expenses.subscribe((allExpenses) => {
+        allExpenses.forEach((expense) => {
+          this.total += +expense.amount || 0;
+        });
+      });
     }
-    
+
   }
 
   ngOnInit() {
   }
+
+
 
 }
