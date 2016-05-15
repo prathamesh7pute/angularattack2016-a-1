@@ -16,8 +16,8 @@ export class ExpenseService {
     }
   }
 
-  createExpense(name: string, category: string, description: string, createdAt: number): Promise<any> {
-    return this.expenseItems$.push(new Expense(name, category, description, createdAt));
+  createExpense(name: string, category: string, amount: number, description: string, createdAt: number): Promise<any> {
+    return this.expenseItems$.push(new Expense(name, category, amount, description, createdAt));
   }
 
   removeExpense(expense: IExpense): Promise<any> {

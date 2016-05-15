@@ -1,40 +1,72 @@
-<md-card>
-  <md-toolbar color="primary">Personal Expenses</md-toolbar>
-  <md-card-content>      
-      <table style="width: 100%" cellspacing="0">
-        
-        <tr *ngFor="let item of expenses | async">
-        <td><md-input #updateName [value]="item.name" style="width: 100%"></md-input></td>
-        <td><md-input #updateCategory [value]="item.category" style="width: 100%"></md-input></td>
-        <td><md-input #updateDescription [value]="item.description" style="width: 100%"></md-input></td>
-        <td><md-input #updateCreatedAt [value]="item.createdAt" style="width: 100%"></md-input></td>
-        <td><button (click)="expenseService.updateExpense(item, { name: updateName.value, category: updateCategory.value, description: updateDescription.value, createdAt: updateCreatedAt.value })"
-          md-button color="primary">UPDATE</button></td>
-        <td><button (click)="expenseService.removeExpense(item)"
-              md-button color="primary">DELETE</button></td>
-      </tr></table>
-   </md-card-content>
-   
-</md-card>
-<br>
+<md-toolbar color="primary">Personal Expenses</md-toolbar>
+<br />
 <md-card class="demo-card demo-basic">
-  <md-toolbar color="primary">Add new expense</md-toolbar>
+  <md-card-title>Add new expense</md-card-title>   
   <md-card-content>
-    <form> 
-      <table style="width: 100%" cellspacing="0"><tr>
-        <td><md-input #expenseName placeholder="Expense name" aria-required="true" style="width: 100%"></md-input></td>
-        <td><md-input #expenseCategory placeholder="Category" style="width: 100%"></md-input></td>
-      </tr></table>
-      <p>
-        <md-input #expenseDescription class="demo-full-width" placeholder="Description" style="width: 100%"></md-input>        
-      </p>
-      <p>
-        <md-input #expenseDate class="demo-full-width" placeholder="Expense date"></md-input>  
-        </p>      
+    <form>
+      <table style="width: 100%">
+        <tr>
+          <td>
+            <md-input #expenseName placeholder="Name"></md-input>
+          </td>
+          <td>
+            <md-input #expenseCategory placeholder="Category"></md-input>
+          </td>
+          <td>
+            <md-input #expenseAmount placeholder="Amount" align="end">
+              <span md-prefix>$&nbsp;</span>
+            </md-input>
+          </td>
+          <td>
+            <md-input #expenseDescription placeholder="Description"></md-input>
+          </td>
+          <td>
+            <md-input #expenseDate placeholder="Expense date"></md-input>
+          </td>
+          <td>
+            <button (click)="expenseService.createExpense(expenseName.value, expenseCategory.value, expenseAmount.value, expenseDescription.value, expenseDate.value)"
+              md-raised-button color="primary">ADD</button>
+          </td>
+        </tr>
+      </table>
     </form>
   </md-card-content>
+</md-card>
+<br />
+<md-card>
+  <md-card-title>Expense done till time</md-card-title>  
   <md-card-content>
-    <button (click)="expenseService.createExpense(expenseName.value, expenseCategory.value, expenseDescription.value, expenseDate.value)" 
-      md-raised-button color="primary">ADD</button>
+    <table style="width: 100%">
+      <tr>
+        <td>Name</td>
+        <td>Category</td>
+        <td>Amount</td>
+        <td>Description</td>
+        <td>Date</td>
+      </tr>
+      <tr *ngFor="let item of expenses | async">
+        <td>
+          <md-input #updateName [value]="item.name"></md-input>
+        </td>
+        <td>
+          <md-input #updateCategory [value]="item.category"></md-input>
+        </td>
+        <td>
+          <md-input #updateAmount [value]="item.amount">
+            <span md-prefix>$&nbsp;</span>
+          </md-input>
+        </td>
+        <td>
+          <md-input #updateDescription [value]="item.description"></md-input>
+        </td>
+        <td>
+          <md-input #updateCreatedAt [value]="item.createdAt"></md-input>
+        </td>
+        <td><button (click)="expenseService.updateExpense(item, { name: updateName.value, category: updateCategory.value, amount: updateAmount.value, description: updateDescription.value, createdAt: updateCreatedAt.value })"
+            md-button color="primary">UPDATE</button></td>
+        <td><button (click)="expenseService.removeExpense(item)" md-button color="primary">DELETE</button></td>
+      </tr>
+    </table>
   </md-card-content>
 </md-card>
+<br />

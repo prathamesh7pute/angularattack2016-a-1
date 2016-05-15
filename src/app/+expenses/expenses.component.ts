@@ -16,10 +16,8 @@ import { MdButton } from '@angular2-material/button';
   selector: 'app-expenses',
   templateUrl: 'expenses.component.html',
   styleUrls: ['expenses.component.css'],
-
   providers: [AuthService, ExpenseService],
   directives: [MD_CARD_DIRECTIVES, MdToolbar, MD_INPUT_DIRECTIVES, MdButton]
-
 })
 export class ExpensesComponent implements OnInit {
 
