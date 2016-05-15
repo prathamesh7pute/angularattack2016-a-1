@@ -11,12 +11,13 @@
           <p>LOGIN</p>
         </md-card-content>
         <div layout="row" layout-align="center center">
-        <md-card-content>
-           <md-list>
-            <md-list-item> <button color="primary"  md-raised-button (click)="authService.loginGoogle()">Login With Google</button> </md-list-item>
-            <md-list-item> <button color="primary" md-raised-button (click)="authService.loginFacebook()">Login With Facebook</button> </md-list-item>
-            <md-list-item> <button color="primary" md-raised-button (click)="authService.loginGithub()">Login With Github</button> </md-list-item>
-          </md-list>
+        <md-card-content layout="row" layout-align="start center">
+          <button color="primary"  md-raised-button (click)="authService.loginGoogle()">Login With Google</button>
+        </md-card-content>
+        <md-card-content layout="row" layout-align="start center">
+          <button color="primary" md-raised-button (click)="authService.loginFacebook()">Login With Facebook</button>        </md-card-content>
+        <md-card-content layout="row" layout-align="start center">
+           <button color="primary" md-raised-button (click)="authService.loginGithub()">Login With Github</button>
         </md-card-content>
         </div>
       </md-card>
