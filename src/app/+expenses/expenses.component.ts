@@ -41,10 +41,10 @@ export class ExpensesComponent implements OnInit {
   }
 
   updateTotal() {
-    this.total = 0;
     this.expenses.subscribe((expenses) => {
+      this.total = 0;
       expenses.forEach((expense) => {
-        this.total += +expense.amount || 0;
+        this.total = this.total + (expense.amount ? +expense.amount : 0);
       });
     });
   }
