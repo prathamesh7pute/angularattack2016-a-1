@@ -10,7 +10,7 @@
     "pree2e": "webdriver-manager update",
     "e2e": "protractor",
     "start": "ng server",
-    "surge": "ng build -prod & surge dist/"
+    "surge": "ng build -prod && surge ./dist/ a-1.2016.angularattack.io"
   },
   "private": true,
   "dependencies": {
