@@ -33,16 +33,38 @@ export class ExpensesComponent implements OnInit {
       this.router.navigate(['/']);
     } else {
       this.expenses = expenseService.expenseItems$;
-      this.expenses.subscribe((allExpenses) => {
-        allExpenses.forEach((expense) => {
-          this.total += +expense.amount || 0;
-        });
-      });
+      this.updateTotal();
     }
-
   }
 
   ngOnInit() {
+  }
+
+  updateTotal() {
+    this.total = 0;
+    this.expenses.subscribe((expenses) => {
+      expenses.forEach((expense) => {
+        this.total += +expense.amount || 0;
+      });
+    });
+  }
+
+  add(expenseName, expenseCategory, expenseAmount, expenseDescription, expenseDate) {
+    this.expenseService.createExpense(expenseName, expenseCategory, expenseAmount, expenseDescription, expenseDate).then(() => {
+      this.updateTotal();
+    });
+  }
+
+  update(item, changes) {
+    this.expenseService.updateExpense(item, changes).then(() => {
+      this.updateTotal();
+    });
+  }
+
+  remove(item) {
+    this.expenseService.removeExpense(item).then(() => {
+      this.updateTotal();
+    });
   }
 
 

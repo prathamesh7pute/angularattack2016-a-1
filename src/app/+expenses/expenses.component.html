@@ -24,7 +24,7 @@
             <md-input #expenseDate placeholder="Expense date"></md-input>
           </td>
           <td>
-            <button (click)="expenseService.createExpense(expenseName.value, expenseCategory.value, expenseAmount.value, expenseDescription.value, expenseDate.value)"
+            <button (click)="add(expenseName.value, expenseCategory.value, expenseAmount.value, expenseDescription.value, expenseDate.value)"
               md-raised-button color="primary">ADD</button>
           </td>
         </tr>
@@ -63,9 +63,9 @@
         <td>
           <md-input #updateCreatedAt [value]="item.createdAt"></md-input>
         </td>
-        <td><button (click)="expenseService.updateExpense(item, { name: updateName.value, category: updateCategory.value, amount: updateAmount.value, description: updateDescription.value, createdAt: updateCreatedAt.value })"
+        <td><button (click)="update(item, { name: updateName.value, category: updateCategory.value, amount: updateAmount.value, description: updateDescription.value, createdAt: updateCreatedAt.value })"
             md-button color="primary">UPDATE</button></td>
-        <td><button (click)="expenseService.removeExpense(item)" md-button color="primary">DELETE</button></td>
+        <td><button (click)="remove(item)" md-button color="primary">DELETE</button></td>
       </tr>
     </table>
   </md-card-content>
