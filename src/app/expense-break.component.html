@@ -1,0 +1,8 @@
+<md-toolbar color="primary">
+  <span>Expense Break</span>
+  <!-- This fills the remaining space of the current row -->
+  <span style="flex: 1 1 auto;"></span>
+  <span *ngIf="authService.authenticated">Welcome, {{authService.displayName}} <button md-raised-button (click)="logout.emit()">Logout</button></span>
+</md-toolbar>
+
+<router-outlet></router-outlet>

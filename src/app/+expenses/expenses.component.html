@@ -1,0 +1,22 @@
+<h1> Personal Expenses </h1>
+<ul>
+  <li *ngFor="let item of expenses | async">
+    <input type="text" #updateName [value]="item.name" />
+    <input type="text" #updateCategory [value]="item.category" />
+    <input type="text" #updateDescription [value]="item.description" />
+    <input type="datetime" #updateCreatedAt [value]="item.createdAt" />
+    <button (click)="expenseService.updateExpense(item, { name: updateName.value, category: updateCategory.value, description: updateDescription.value, createdAt: updateCreatedAt.value })">Update</button>
+    <button (click)="expenseService.removeExpense(item)">Delete</button>
+  </li>
+</ul>
+<h4>Add new expense</h4>
+<br />
+<input type="text" #expenseName />
+<input type="text" #expenseCategory />
+<input type="text" #expenseDescription />
+<input type="datetime" #expenseDate />
+<button (click)="expenseService.createExpense(expenseName.value, expenseCategory.value, expenseDescription.value, expenseDate.value)">Add</button>
+<br />
+<br />
+<br />
+<br />
