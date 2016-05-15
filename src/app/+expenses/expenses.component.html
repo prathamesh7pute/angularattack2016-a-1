@@ -1,20 +1,26 @@
-<h1> Personal Expenses </h1>
-<ul>
-  <li *ngFor="let item of expenses | async">
-    <input type="text" #updateName [value]="item.name" />
-    <input type="text" #updateCategory [value]="item.category" />
-    <input type="text" #updateDescription [value]="item.description" />
-    <input type="datetime" #updateCreatedAt [value]="item.createdAt" />
-    <button (click)="expenseService.updateExpense(item, { name: updateName.value, category: updateCategory.value, description: updateDescription.value, createdAt: updateCreatedAt.value })">Update</button>
-    <button (click)="expenseService.removeExpense(item)">Delete</button>
-  </li>
-</ul>
-
+<md-card>
+  <md-toolbar color="primary">Personal Expenses</md-toolbar>
+  <md-card-content>      
+      <table style="width: 100%" cellspacing="0">
+        
+        <tr *ngFor="let item of expenses | async">
+        <td><md-input #updateName [value]="item.name" style="width: 100%"></md-input></td>
+        <td><md-input #updateCategory [value]="item.category" style="width: 100%"></md-input></td>
+        <td><md-input #updateDescription [value]="item.description" style="width: 100%"></md-input></td>
+        <td><md-input #updateCreatedAt [value]="item.createdAt" style="width: 100%"></md-input></td>
+        <td><button (click)="expenseService.updateExpense(item, { name: updateName.value, category: updateCategory.value, description: updateDescription.value, createdAt: updateCreatedAt.value })"
+          md-button color="primary">UPDATE</button></td>
+        <td><button (click)="expenseService.removeExpense(item)"
+              md-button color="primary">DELETE</button></td>
+      </tr></table>
+   </md-card-content>
+   
+</md-card>
+<br>
 <md-card class="demo-card demo-basic">
   <md-toolbar color="primary">Add new expense</md-toolbar>
   <md-card-content>
-    <form>
- 
+    <form> 
       <table style="width: 100%" cellspacing="0"><tr>
         <td><md-input #expenseName placeholder="Expense name" aria-required="true" style="width: 100%"></md-input></td>
         <td><md-input #expenseCategory placeholder="Category" style="width: 100%"></md-input></td>
