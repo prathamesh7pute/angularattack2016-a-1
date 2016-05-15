@@ -12,11 +12,6 @@ export class AuthService {
     constructor(private af: AngularFire, private router: Router) {
         this.af.auth.subscribe(auth => {
             this.auth = auth;
-            if (this.authenticated) {
-                this.router.navigate(['/expenses']);
-            } else {
-                this.router.navigate(['/']);
-            }
         });
     }
 
