@@ -2,9 +2,11 @@
   <span>Expense Break</span>
   <!-- This fills the remaining space of the current row -->
   <span style="flex: 1 1 auto;"></span>
-  <h6 *ngIf="authService.authenticated">Welcome, {{authService.displayName}}</h6>
-  <span>&nbsp;&nbsp;&nbsp;</span>
-  <button md-raised-button (click)="authService.logout()" color="warn">Logout</button>
+  <span *ngIf="authService.authenticated">
+    <h6>Welcome, {{authService.displayName}}</h6>
+    <span>&nbsp;&nbsp;&nbsp;</span>
+    <button md-raised-button (click)="authService.logout()" color="warn">Logout</button>
+  </span>
 </md-toolbar>
 
 <router-outlet></router-outlet>
