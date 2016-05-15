@@ -9,14 +9,26 @@
     <button (click)="expenseService.removeExpense(item)">Delete</button>
   </li>
 </ul>
-<h4>Add new expense</h4>
-<br />
-<input type="text" #expenseName />
-<input type="text" #expenseCategory />
-<input type="text" #expenseDescription />
-<input type="datetime" #expenseDate />
-<button (click)="expenseService.createExpense(expenseName.value, expenseCategory.value, expenseDescription.value, expenseDate.value)">Add</button>
-<br />
-<br />
-<br />
-<br />
+
+<md-card class="demo-card demo-basic">
+  <md-toolbar color="primary">Add new expense</md-toolbar>
+  <md-card-content>
+    <form>
+ 
+      <table style="width: 100%" cellspacing="0"><tr>
+        <td><md-input #expenseName placeholder="Expense name" aria-required="true" style="width: 100%"></md-input></td>
+        <td><md-input #expenseCategory placeholder="Category" style="width: 100%"></md-input></td>
+      </tr></table>
+      <p>
+        <md-input #expenseDescription class="demo-full-width" placeholder="Description" style="width: 100%"></md-input>        
+      </p>
+      <p>
+        <md-input #expenseDate class="demo-full-width" placeholder="Expense date"></md-input>  
+        </p>      
+    </form>
+  </md-card-content>
+  <md-card-content>
+    <button (click)="expenseService.createExpense(expenseName.value, expenseCategory.value, expenseDescription.value, expenseDate.value)" 
+      md-raised-button color="primary">ADD</button>
+  </md-card-content>
+</md-card>
