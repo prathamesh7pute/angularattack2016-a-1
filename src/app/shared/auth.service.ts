@@ -18,22 +18,19 @@ export class AuthService {
     loginGoogle() {
         this.af.auth.login({
             provider: AuthProviders.Google,
-            method: AuthMethods.Redirect,
-        });
+        }).then(() => { this.router.navigate(['/expenses']); });
     }
 
     loginFacebook() {
         this.af.auth.login({
             provider: AuthProviders.Facebook,
-            method: AuthMethods.Redirect,
-        });
+        }).then(() => { this.router.navigate(['/expenses']); });
     }
 
     loginGithub() {
         this.af.auth.login({
             provider: AuthProviders.Github,
-            method: AuthMethods.Redirect,
-        });
+        }).then(() => { this.router.navigate(['/expenses']); });
     }
 
     get displayName(): string {
@@ -55,6 +52,7 @@ export class AuthService {
 
     logout(): void {
         this.af.auth.logout();
+        this.router.navigate(['/']);
     }
 
 }
