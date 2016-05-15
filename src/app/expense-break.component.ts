@@ -4,7 +4,7 @@ import { MdButton } from '@angular2-material/button';
 import { HomeComponent } from './+home';
 import { Routes, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router} from '@angular/router';
 import { ExpensesComponent } from './+expenses';
-import { AuthService } from './shared'
+import { AuthService, ExpenseService } from './shared'
 
 @Component({
   moduleId: module.id,
@@ -13,7 +13,7 @@ import { AuthService } from './shared'
   templateUrl: 'expense-break.component.html',
   styleUrls: ['expense-break.component.css'],
   directives: [MdToolbar, MdButton, ROUTER_DIRECTIVES],
-  providers: [ROUTER_PROVIDERS, AuthService]
+  providers: [ROUTER_PROVIDERS, AuthService, ExpenseService]
 })
 @Routes([
   { path: '/', component: HomeComponent },
